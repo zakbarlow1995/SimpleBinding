@@ -10,12 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var goToNextVCButton: UIButton!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
+        
     @IBAction func goToNextVCButtonPressed(_ sender: UIButton) {
         print("Button pressed")
         
@@ -31,7 +26,6 @@ class ColorVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel?.getNewColorFromApi()
     }
     
@@ -51,10 +45,10 @@ class ColorVC: UIViewController {
 
 class ColorViewModel {
     
-    var color = Box(UIColor.red)
+    var color: Box<UIColor> = Box(.red)
     
     func getNewColorFromApi() {
-        //Goes to your api to fetch a color
+        //Simulating fetch of a color from API, and then updating the bound property, boxed UIColor
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
             self.color.value = [.green, .purple, .blue, .orange, .yellow, .cyan, .magenta, .brown].randomElement() ?? .red
         }
