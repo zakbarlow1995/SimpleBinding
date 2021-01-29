@@ -42,8 +42,7 @@ Example use case, configuring view-viewModel dynamic binding:
 
 ```swift
 
-class ColorViewModel {
-    
+class ViewModel {
     var color: Box<UIColor> = Box(.red)
     var title: Box<String> = Box("Hello, World!")
 }
